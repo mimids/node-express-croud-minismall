@@ -1,0 +1,29 @@
+<h1> {{title}}</h1>
+<div class='parts'>
+<select name="data" id="user">
+  {{#compare data null operator="=="}}
+  <option value="rien">Il n'y a pas de données dans la base users</option>
+  {{else}}
+  <option value="0">Select a user to modify his datas</option>
+  {{#each data}}
+  <option value="{{this._id}}">{{this.nom}} {{this.prenom}}-
+    {{this.statut}}</option>
+  {{/each}}
+  {{/compare}}
+</select>
+</div>
+<h2>or</h2>
+
+<div class='parts'>
+<button id="newUser">Create a new user</button>
+</div>
+<script>
+  var usr = document.getElementById('user');
+  usr.addEventListener('change', function (evt) {
+    window.location = "/formFormateur/" + usr.value;
+  });
+  var btn_new = document.getElementById('newUser');
+  btn_new.addEventListener('click', function (evt) {
+    window.location = "/newFormateur";
+  });
+</script>

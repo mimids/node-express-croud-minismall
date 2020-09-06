@@ -1,0 +1,36 @@
+{
+  "Users": {
+    "collection": "users",
+    "schema": {
+      "_id": "ObjectId",
+      "nom": "String",
+      "prenom": "String",
+      "login": "String",
+      "password": "string"
+    }
+  },
+  "Formateurs": {
+    "collection": "formateurs",
+    "schema": {
+      "_id": "ObjectId",
+      "nom": "String",
+      "prenom": "String",
+      "statut": "String",
+      "prix_jour": "Number"
+    }
+  },
+  "Formations": {
+    "collection": "formations",
+    "schema": {
+      "_id": "ObjectId",
+      "libelle": "String",
+      "duree": "Number",
+      "plan_cours": "String",
+      "prix": "Number",
+      "formateurs": {
+        "type": "ObjectId",
+        "ref": "Formateurs"
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<h1> Express App : {{title}}</h1>
+
+<form method="POST" action="{{form_action}}" id="formAddFormation">
+    <input type="hidden" name="id" value="{{data._id}}" />
+<table>
+
+    <tr>
+    <th>libelle</th>
+    <td class="txt"><input type="text" name="libelle" value="{{data.libelle}}" required /></td></tr>
+
+    <tr>
+    <th>plan_cours</th>
+    <td class="txt"><input type="text" name="plan_cours" value="{{data.plan_cours}}" /></td>
+<tr>
+    <th>duree</th>
+    <td class="txt"><input name="duree" value="{{data.duree}}"  type="number" /></td></tr>
+    <tr>
+    <th>prix</th>
+    <td class="txt"><input  name="prix" value="{{data.prix}}"  type="number" /></td></tr>
+
+    <tr>
+    <th>formateur</th>
+    <td class="txt"><select id="formateurs" name="formateurs">
+        {{#each liste}}
+        {{#compare ../data.formateurs  this._id  operator='=='}}
+        <option value="{{this._id}}" selected>{{this.nom}} - {{this.prenom}} </option>
+        {{else}}
+        <option value="{{this._id}}">{{this.nom}} - {{this.prenom}}</option>
+        {{/compare}}
+        {{/each}}
+    </select></td></tr>
+   </table>
+   <div class='parts'>
+    <input type="submit" value="Confirmer la {{libelle}}" class="button" />
+    <input type="button" value="Supprimer cet formation" id="delbtn" class="button"></div>
+</form>
+
+<!-- Script de validation du formulaire de modification -->
+
+<script>
+    var form = document.getElementById('formAddFormation');
+    form.addEventListener('submit', function (evt) {
+        var actionPost = "/" + form.action.split('/')[3];
+        if (actionPost == "/modifyFormation") form.action += "/{{data._id}}";
+        form.submit();
+    });
+    var btn_del = document.getElementById('delbtn');
+    btn_del.addEventListener('click', function (evt) {
+        window.location = "/deleteFormation/{{data._id}}";
+    });
+
+</script>

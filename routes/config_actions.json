@@ -1,0 +1,137 @@
+{
+  "GET/": {
+    "controler": "getView",
+    "view": "index",
+    "title": "Bienvenue dans le framework Node/Express",
+    "stitle":"MiniSmall"
+  },
+  "GET/formateurs": {
+    "controler": "finder",
+    "modelName": "Formateurs",
+    "view":"formateurs",
+    "stitle" : "Formateurs",
+    "title" : "Liste déroulante list formateurs"
+  },
+  "GET/formFormateur": {
+    "controler": "findById",
+    "modelName": "Formateurs",
+    "view": "formFormateur",
+    "form_action": "/modifyFormateur",
+    "libelle":"modification",
+    "title":"modification"
+  },
+  "POST/formFormateur": {
+    "controler": "findById",
+    "modelName": "Formateurs",
+    "view":"formFormateur",
+    "form_action": "/modifyFormateur"
+  },
+  "GET/modifyFormateur": {
+    "controler": "updateById",
+    "modelName": "Formateurs",
+    "view":"modifyFormateur",
+    "title": "Résultat après modification"
+  },
+  "POST/modifyFormateur": {
+    "controler": "updateById",
+    "modelName": "Formateurs",
+    "view":"modifyFormateur",
+    "title": "Résultat après modification"
+  },
+  "GET/newFormateur": {
+    "controler": "finder",
+    "modelName": "Formateurs",
+    "view" : "formFormateur",
+    "form_action": "/createFormateur",
+    "title": "Create a new formateur",
+    "libelle": "creation"
+  },
+  "GET/createFormateur": {
+    "controler": "insertOne",
+    "modelName": "Formateurs",
+    "view":"modifyFormateur"
+  },
+  "POST/createFormateur": {
+    "controler": "insertOne",
+    "modelName": "Formateurs",
+    "view":"modifyFormateur",
+    "title": "Résultat après Create"
+  },
+  "GET/deleteFormateur": {
+    "controler": "deleteById",
+    "modelName": "Formateurs",
+    "view" : "formateurs",
+    "title": "Résultat après suppression"
+  },
+
+
+  "GET/formations": {
+    "controler": "populate",
+    "modelName": "Formations",
+    "view":"formations",
+    "modelList": "Formateurs",
+    "pop_ref": "formateurs",
+    "stitle" : "Formations",
+    "title" : "Liste de formations"
+  },
+ "GET/formFormation": {
+  "controler": "findByIdWithList",
+  "modelName": "Formations",
+  "view": "formFormation",
+  "form_action": "/modifyFormation",
+  "modelList": "Formateurs",
+  "libelle":"modification",
+  "title":"modification"
+},
+"POST/formFormation": {
+  "controler": "findByIdWithList",
+  "modelName": "Formations",
+  "view":"formFormation",
+  "modelList": "Formateurs",
+  "form_action": "/modifyFormation",
+  "libelle":"modification",
+  "title":"modification"
+},
+"GET/modifyFormation": {
+  "controler": "updateById",
+  "modelName": "Formations",
+  "modelList": "Formateurs",
+  "view":"modifyFormation",
+  "title": "Résultat après modification"
+},
+"POST/modifyFormation": {
+  "controler": "updateById",
+  "modelName": "Formations",
+  "modelList": "Formateurs",
+  "view":"modifyFormation",
+  "title": "Résultat après modification"
+},
+"GET/newFormation": {
+  "controler": "finder",
+  "modelName": "Formations",
+  "view" : "formFormation",
+  "form_action": "/createFormation",
+  "title": "Create a new formation",
+  "modelList": "Formateurs",
+  "libelle": "creation"
+},
+"GET/createFormation": {
+  "controler": "insertOne",
+  "modelName": "Formations",
+  "modelList": "Formateurs",
+  "view":"modifyFormation"
+},
+"POST/createFormation": {
+  "controler": "insertOne",
+  "modelName": "Formations",
+  "view":"modifyFormation",
+  "modelList": "Formateurs",
+  "title": "Résultat après Create"
+},
+"GET/deleteFormation": {
+ "controler": "deleteById",
+ "modelName": "Formations",
+ "view" : "formations",
+ "title": "Résultat après suppression"
+}
+}

@@ -1,0 +1,43 @@
+<h1> Express App : {{title}}</h1>
+
+<form method="POST" action="{{form_action}}" id="formAddFormateur">
+
+<table>
+    <tr>
+    <th>nom</th>
+        <td class="txt"><input type="text" name="nom" value="{{data.nom}}" required />
+        </td>
+    </tr>
+    <tr>
+    <th>prenom </th>
+     <td class="txt"><input type="text" name="prenom" value="{{data.prenom}}" /></td>
+    </tr>
+    <tr>
+    <th>status </th>
+     <td class="txt"><input type="text" name="statut" value="{{data.statut}}" /></td>
+    </tr>
+    <tr>
+    <th>prix jour</th>
+    <td  class="txt"><input  name="prix_jour" value="{{data.prix_jour}}" type="number" /></td>
+    </tr>
+    </table>
+    <div class='parts'>
+  <input type="submit" value="Confirmer la {{libelle}}" class="button" />
+    <input type="button" value="Supprimer cet formateur" id="delbtn" class="button"></div>
+</form>
+
+<!-- Script de validation du formulaire de modification -->
+
+<script>
+    var form = document.getElementById('formAddFormateur');
+    form.addEventListener('submit', function (evt) {
+        var actionPost = "/" + form.action.split('/')[3];
+        if (actionPost == "/modifyFormateur") form.action += "/{{data._id}}";
+        form.submit();
+    });
+    var btn_del = document.getElementById('delbtn');
+    btn_del.addEventListener('click', function (evt) {
+        window.location = "/deleteFormateur/{{data._id}}";
+    });
+
+</script>

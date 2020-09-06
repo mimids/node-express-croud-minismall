@@ -1,0 +1,37 @@
+<h1>{{title}}</h1>
+<h2>{{stitle}}</h2><br>
+
+<table>
+        <thead>
+            <tr>
+                <td class="non"></td>
+                 <th scope="col">Plan de cours</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Prix</th>
+                 <th scope="col">Formateur</th>
+            </tr>
+        </thead>
+        <tbody>
+               {{#each data}}
+            <tr>
+                <th><a href="/formFormation/{{this._id}}">{{this.libelle}}</a></th>
+                  <td data-label="plan_cours" class="txt">{{this.plan_cours}}</td>
+                <td data-label="duree" class="txt">{{this.duree}} heures</td>
+                <td data-label="prix" class="price">{{this.prix}}€</td>
+                 <td data-label="formation" class="txt">{{this.formateurs.nom}} {{this.formateurs.prenom}}</td>
+            </tr>
+               {{/each}}
+        </tbody>
+    </table>   
+
+
+<div class='parts'>
+<button id="newFormation">Create a new formation</button>
+</div>
+<script>
+ 
+  var btn_new = document.getElementById('newFormation');
+  btn_new.addEventListener('click', function (evt) {
+    window.location = "/newFormation";
+  });
+</script>
